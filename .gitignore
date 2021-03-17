@@ -1,0 +1,15 @@
+algonia-bundle-win64
+algonia-designer-darwin-x64
+algos/netcore/StockPrices/bin
+algos/netcore/StockPrices/obj
+algos/netcore/StockPricesTest/bin
+algos/netcore/StockPricesTest/obj
+algos/netcore/StockPricesTest/.vs
+algos/py/graphs/__pycache__
+templates/StockPrices/StockPrices.compiled
+algonia-bundle-macos
+.DS_Store
+algos/py/system/__pycache__
+external/py_gui_client/system/__pycache__/algonia_sdk.cpython-37.pyc
+templates/StockPricesEmbeddedGUI/StockPricesEmbeddedGUI.compiled
+guis/py_gui_client/system/__pycache__/algonia_sdk.cpython-37.pyc

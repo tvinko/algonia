@@ -1,0 +1,49 @@
+<head>
+  <script type="text/javascript" src="/eel.js"></script>
+  <script type="text/javascript" src="scripts/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="styles/app.css">
+
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+
+      $("#btnGetPricesAsync").click(function () {
+        eel.getPricesRequest($("#txtSymbol").val());
+        $('#divStatus').prepend('<p><b>Getting prices...</b></p>');
+      });
+
+      eel.expose(onGetPricesCompleted);
+      function onGetPricesCompleted(result) {
+        eel.saveGraphRequest();
+        $('#divStatus').prepend('<p><b>Drawing graph...</b></p>');
+      }
+
+      eel.expose(onSaveGraphCompleted);
+      function onSaveGraphCompleted(result) {
+        $('#divGraph').empty();
+        $('#divGraph').prepend('<img id="theImg" src="data:image/png;base64, ' + result + '"/>');
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <div id="background-wrap">
+    
+    <div class="bubble x1"></div>
+    <div class="bubble x2"></div>
+    <div class="bubble x3"></div>
+    <div class="bubble x4"></div>
+    <div class="bubble x5"></div>
+    <div class="bubble x6"></div>
+    <div class="bubble x7"></div>
+    <div class="bubble x8"></div>
+    <div class="bubble x9"></div>
+    <div class="bubble x10"></div>
+  </div>
+  <button id="btnGetPricesAsync">Draw Graph</button>&nbsp;&nbsp;
+  <input type="text" id="txtSymbol" value="MSFT" name="txtSymbol" /><br />
+  <div id='divGraph'></div>
+  <div id='divStatus'></div>
+
+</body>
